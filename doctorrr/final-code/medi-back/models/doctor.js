@@ -24,6 +24,16 @@ const doctorSchema = new mongoose.Schema(
             ref: 'Hospital',
             required: true
         },
+        region: {
+            type: ObjectId,
+            ref: 'Region',
+            required: true
+        },
+        country: {
+            type: ObjectId,
+            required: true,
+            ref: 'Country'
+        },
         specialisation: {
             type: ObjectId,
             ref: 'Treatment',

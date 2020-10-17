@@ -20,7 +20,7 @@ const reportSchema = new mongoose.Schema(
 		},
 		updated: Date
 	},
-	{ timestamp: true }
+	{ timestamps: true }
 );
 
 module.exports = mongoose.model('Report', reportSchema);

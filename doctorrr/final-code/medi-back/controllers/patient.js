@@ -12,7 +12,6 @@ exports.submitPatient = (req, res) => {
                 error: 'Image could not be uploaded'
             });
         }
-        // check for all fields
         const { name, email, contact, country, location, gender, dob, description, about } = fields;
 
         if (!name || !email || !contact || !country || !location || !gender || !dob || !description || !about) {
@@ -23,11 +22,7 @@ exports.submitPatient = (req, res) => {
 
         let patient = new Patient(fields);
 
-        // 1kb = 1000
-        // 10mb = 10000000
-
         if (files.photo) {
-            // console.log("FILES PHOTO: ", files.photo);
             if (files.photo.size > 10000000) {
                 return res.status(400).json({
                     error: 'Image should be less than 10MB in size. Multiple images should be sent in a pdf format'

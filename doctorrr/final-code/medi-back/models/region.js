@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { ObjectId } = mongoose.Schema;
 
 const regionSchema = new mongoose.Schema(
     {
@@ -8,6 +9,11 @@ const regionSchema = new mongoose.Schema(
             required: true,
             maxlength: 100,
             unique: true
+        },
+        country: {
+            type: ObjectId,
+            required: true,
+            ref: 'Country'
         }
     },
     { timestamps: true }

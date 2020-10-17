@@ -10,14 +10,16 @@ const hospitalSchema = new mongoose.Schema(
             maxlength: 100
         },
         region: {
-            type: ObjectId,
-            ref: "Region",
-            required: true
+            type: String,
+            trim: true,
+            required: true,
+            maxlength: 100
         },
         country: {
-            type: ObjectId,
-            ref: "Country",
-            required: true
+            type: String,
+            trim: true,
+            required: true,
+            maxlength: 100
         },
         about: {
             type: String,
@@ -33,6 +35,16 @@ const hospitalSchema = new mongoose.Schema(
             type: String,
             required: true,
             maxlength: 500
+        },
+        country: {
+            type: ObjectId,
+            required: true,
+            ref: 'Country'
+        },
+        region: {
+            type: ObjectId,
+            ref: 'Region',
+            required: true
         },
         facilities: {
             type: String,
