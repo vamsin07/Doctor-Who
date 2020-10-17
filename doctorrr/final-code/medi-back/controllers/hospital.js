@@ -234,3 +234,19 @@ exports.list = (req, res) => {
             res.json(hospitals);
         });
 };
+
+exports.searchHospital = (req, res) => {
+  let hospitalName = req.body.hospitalName;
+  Hospital.find({name: hospitalName}, function(err, hospitals) {
+    if(err){
+      if (err) {
+          return res.status(400).json({
+              error: 'Sorry, the hospital you\'re looking for not found.'
+          });
+      }
+    }
+    else {
+      res.json(hospitals);
+    }
+  });
+};

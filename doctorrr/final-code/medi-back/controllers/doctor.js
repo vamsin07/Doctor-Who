@@ -141,3 +141,19 @@ exports.list = (req, res) => {
             res.json(doctors);
         });
 };
+
+exports.searchDoctor = (req, res) => {
+  let doctorName = req.body.doctorName;
+  Doctor.find({name: doctorName}, function(err, doctors) {
+    if(err){
+      if (err) {
+          return res.status(400).json({
+              error: 'Sorry, the doctor you\'re looking for not found.'
+          });
+      }
+    }
+    else {
+      res.json(doctors);
+    }
+  });
+};
